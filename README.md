@@ -104,13 +104,12 @@
 		- Save and Push to GitHub
 
 ## Configure All Systems
-### Configure Promitheus
+### Configure Prometheus
   - Login/SSH to your Prometheus Server
   - Clone the following repository: https://github.com/avinashmamidi/realworld-cicd-pipeline-project.git
-  - Change directory to "scripts"
-  - Run: cd realworld-cicd-pipeline-project/scripts
-  - Swtitch to the "prometheus-and-grafana" git branch  
-  - Run: ./install-prometheus.sh
+  - Change directory to "realworld-cicd-pipeline-project"
+  - Run: cd realworld-cicd-pipeline-project
+  - Run: ./scripts/install-prometheus.sh
   - Confirm the status shows "Active (running)"
   - Exit
 
@@ -118,9 +117,8 @@
   - Login/SSH to your Grafana Server
   - Clone the following repository: https://github.com/avinashmamidi/realworld-cicd-pipeline-project.git
   - Change directory to "realworld-cicd-pipeline-project"
-  - Swtitch to the "prometheus-and-grafana" git branch 
-  - Run: ls or ll  (to confirm you have the branch files)
-  - Run: ./install-grafana.sh
+  - Run: cd realworld-cicd-pipeline-project
+  - Run: ./scripts/install-grafana.sh
   - Confirm the status shows "Active (running)"
   - Exit
 
@@ -130,9 +128,8 @@
   - Install git by running: sudo yum install git -y 
   - Clone the following repository: https://github.com/avinashmamidi/realworld-cicd-pipeline-project.git
   - Change directory to "realworld-cicd-pipeline-project"
-  - Swtitch to the "prometheus-and-grafana" git branch 
-  - Run: ls or ll  (to confirm you have the branch files)
-  - Run: ./install-node-exporter.sh
+  - Run: cd realworld-cicd-pipeline-project
+  - Run: ./scripts/install-node-exporter.sh
   - Confirm the status shows "Active (running)"
   - Access the Node Exporters running on port "9100", open your browser and run the below
       - Dev-EnvPublicIPaddress:9100   (Confirm this page is accessible)
@@ -146,9 +143,8 @@
   - Install git by running: sudo yum install git -y    (The SonarQube server already has git)
   - Clone the following repository: https://github.com/avinashmamidi/realworld-cicd-pipeline-project.git
   - Change directory to "realworld-cicd-pipeline-project"
-  - Swtitch to the "prometheus-and-grafana" git branch 
-  - Run: ls or ll  (to confirm you have the branch files including "install-node-exporter.sh")
-  - Run: ./install-node-exporter.sh
+  - Run: cd realworld-cicd-pipeline-project
+  - Run: ./scripts/install-node-exporter.sh
   - Make sure the status shows "Active (running)"
   - Access the Node Exporters running on port "9100", open your browser and run the below
       - Jenkins-Maven-AnsiblePublicIPaddress:9100   (Confirm the pages are accessible)
@@ -164,7 +160,7 @@
       - Navigate to "- targets: ['localhost:9090']" and add the "IPAddress:9100" for all the above Pipeline instances. Ecample "- targets: ['localhost:9090', 'DevIPAddress:9100', 'StageIPAddress:9100', 'ProdIPAddress:9100', 'Jenkins-Maven-AnsibleIPAddress:9100'] ETC..."
       - Save the Config File and Quit
   - Open a TAB on your choice browser
-  - Copy the Prometheus PublicIP Addres and paste on the browser/tab with port 9100 e.g "PrometheusPublicIPAddres:9100"
+  - Copy the Prometheus PublicIP Addres and paste on the browser/tab with port 9090 e.g "PrometheusPublicIPAddres:9100"
       - Once you get to the Prometheus Dashboard Click on "Status" and Click on "Targets"
   - Confirm that Prometheus is able to reach everyone of your Nodes, do this by confirming the Status "UP" (green)
   - Done
@@ -482,20 +478,7 @@ cd /opt/splunk/bin
 
     - Slack Continuous Feedback Alert
     ![SlackResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/slack-first-notification-from-pipeline-job2.png)
-
-    - SonarQube GateKeeper Webhook Payload
-    ![SonarQubeGateKeeper!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/sonarqube-webhook-forGateKepper-Result.png)
-
-    ### B. Troubleshooting (Possible Issues You May Encounter and Suggested Solutions)
-    1) **1st ISSUE:** If you experience a long wait time at the level of `GateKeeper`, please check if your `Sonar Webhook` is associated with your `SonarQube Project` with `SonarQube Results`
-    - If you check your jenkins Pipeline you'll most likely find the below message at the `SonarQube GateKeper` stage
-    ```bash
-    JENKINS CONSOLE OUTPUT
-
-    Checking status of SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' on server 'SonarQube'
-    SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' status is 'PENDING'
-    ```
-
+    
 ### Nexus Configuration
 1)  ### Accessing Nexus: 
     The nexus service on port 8081. To access the nexus dashboard, visit http://Nexus-Pub-IP:8081. You will be able to see the nexus homepage as shown below.
@@ -517,7 +500,7 @@ cd /opt/splunk/bin
 
 ### Update Maven POM and Integrate/Configure Nexus With Jenkins
 A) Update Maven `POM.xml` file
-- Update the Following lines of Code ``(Line 32 and 36)`` in the maven `POM` file and save
+- Update the Following lines of Code ``(Line 33 and 37)`` in the maven `POM` file and save
 ```bash
 <url>http://Nexus-Server-Private-IP:8081/repository/maven-project-snapshots/</url>
 
