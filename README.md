@@ -72,7 +72,7 @@
     - Launch Instance
 
 8) EC2 (Splunk)
-    - Create an Amazon Linux 2 VM instance and call it (Names: Splunk-Server)
+    - Create an Amazon Linux 2 VM instance and call it "Splunk"
     - Instance type: t2.micro
     - Security Group (Open): 22, 8000, 9997, 9100 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
@@ -95,10 +95,10 @@
       ![SlackConfig!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.08.55%20PM.png)
     
     #### NOTE: Update Your Jenkins file with your Slack Channel Name
-    - Go back to your local, open your "Jenkins-CICD-Project" repo/folder/directory on VSCODE
-    - Open your "Jenkinsfile"
-    - Update the slack channel name on line "97" (there about)
-    - Change name from "cicd-project-alerts" (or whatever name thst's there) to yours
+    - Go back to your local, open your "realworld-cicd-pipeline-project" repo on Github
+    - Open your "Jenkinsfile" and Edit
+    - Update the slack channel name on line "126"
+    - Change name from "cicd-pipeline-project-alerts" (or whatever name that's there) to yours
     - Add the changes to git, commit and push to GitHub
     - Confirm the changes are available on GitHub
 		- Save and Push to GitHub
@@ -106,8 +106,9 @@
 ## Configure All Systems
 ### Configure Promitheus
   - Login/SSH to your Prometheus Server
-  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
-  - Change directory to "realworld-cicd-pipeline-project"
+  - Clone the following repository: https://github.com/avinashmamidi/realworld-cicd-pipeline-project.git
+  - Change directory to "scripts"
+  - Run: cd realworld-cicd-pipeline-project/scripts
   - Swtitch to the "prometheus-and-grafana" git branch  
   - Run: ./install-prometheus.sh
   - Confirm the status shows "Active (running)"
@@ -115,7 +116,7 @@
 
 ### Configure Grafana
   - Login/SSH to your Grafana Server
-  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
+  - Clone the following repository: https://github.com/avinashmamidi/realworld-cicd-pipeline-project.git
   - Change directory to "realworld-cicd-pipeline-project"
   - Swtitch to the "prometheus-and-grafana" git branch 
   - Run: ls or ll  (to confirm you have the branch files)
@@ -127,7 +128,7 @@
   - Login/SSH into the "Dev-Env", "Stage-Env" and "Prod-Env" VM instance
   - Perform the following operations on all of them
   - Install git by running: sudo yum install git -y 
-  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
+  - Clone the following repository: https://github.com/avinashmamidi/realworld-cicd-pipeline-project.git
   - Change directory to "realworld-cicd-pipeline-project"
   - Swtitch to the "prometheus-and-grafana" git branch 
   - Run: ls or ll  (to confirm you have the branch files)
@@ -143,7 +144,7 @@
   - Login/SSH into the "Jenkins-Maven-Ansible", "Nexus" and "SonarQube" VM instance
   - Perform the following operations on all of them
   - Install git by running: sudo yum install git -y    (The SonarQube server already has git)
-  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
+  - Clone the following repository: https://github.com/avinashmamidi/realworld-cicd-pipeline-project.git
   - Change directory to "realworld-cicd-pipeline-project"
   - Swtitch to the "prometheus-and-grafana" git branch 
   - Run: ls or ll  (to confirm you have the branch files including "install-node-exporter.sh")
@@ -206,7 +207,7 @@
     ```
     - Install Splunk
     ```
-    sudo yum install ./splunk-9.0.2-17e00c557dc1-linux-2.6-x86_64.rpm -y
+    sudo yum install ./splunk-9.0.4.1-419ad9369127-linux-2.6-x86_64.rpm -y
     ```
     - Start the splunk server 
     ```bash
