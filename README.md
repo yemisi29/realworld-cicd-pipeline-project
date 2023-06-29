@@ -30,7 +30,7 @@
     - Instance type: t2.medium
     - Security Group (Open): 8080, 9100 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
-    - User data (Copy the following user data): https://github.com/avinashmamidi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/jenkins-install.sh
+    - User data (Copy the following user data): https://github.com/avinashmamidi/realworld-cicd-pipeline-project/blob/45b4334385ca5fc304188863fb80c9f88c2de491/scripts/install-jenkins.sh
     - Launch Instance
 
 3) SonarQube
@@ -38,7 +38,7 @@
     - Instance type: t2.medium
     - Security Group (Open): 9000, 9100 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/sonarqube-install.sh
+    - User data (Copy the following user data): https://github.com/avinashmamidi/realworld-cicd-pipeline-project/blob/45b4334385ca5fc304188863fb80c9f88c2de491/scripts/install-sonarqube.sh
     - Launch Instance
 
 4) Nexus
@@ -46,7 +46,7 @@
     - Instance type: t2.medium
     - Security Group (Open): 8081, 9100 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/nexus-install.sh
+    - User data (Copy the following user data): https://github.com/avinashmamidi/realworld-cicd-pipeline-project/blob/45b4334385ca5fc304188863fb80c9f88c2de491/scripts/install-nexus.sh
     - Launch Instance
 
 5) EC2 (Dev/Stage/Prod)
@@ -54,7 +54,7 @@
     - Instance type: t2.micro
     - Security Group (Open): 8080, 9100, 9997 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/tomcat-splunk-installation/tomcat-ssh-configure.sh
+    - User data (Copy the following user data): https://github.com/avinashmamidi/realworld-cicd-pipeline-project/blob/45b4334385ca5fc304188863fb80c9f88c2de491/scripts/setup-tomcat-ansible.sh
     - Launch Instance
 
 6) Prometheus
@@ -83,7 +83,7 @@
 
 9) Slack 
     - Go to the bellow Workspace and create a Private Slack Channel and name it "yourfirstname-jenkins-cicd-pipeline-alerts"
-    - Link: https://join.slack.com/t/realworldcicdproject/shared_invite/zt-1tryd7x1v-g8a~zEJBKKchVvvK87jkeQ  
+    - Link: https://join.slack.com/t/devops-monk/shared_invite/zt-1yaybehc4-1BLuY21muZo~aY_g6RVH_A  
       - You can either join through the browser or your local Slack App
       - Create a `Private Channel` using the naming convention `cicd-pipeline-project-alerts`
       - Click on the Drop down on the Channel and select Integrations and take `Add an App`
